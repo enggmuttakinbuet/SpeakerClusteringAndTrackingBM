@@ -11,6 +11,8 @@ We have a file related to this called urbm_train_save_weights.py. In this file w
 We have then the next file to adapt each speaker on the pre-trained URBM model. That is we train each speaker based on an RBM model whose weights are taken initially from pre-trained URBM model. We save weights of each speaker in different files. The file where we do this is rbm_adaptation_urbm_weights.py. 
 3.	RBM super-vector extraction, PCA, RBM vectors, and Clustering:
 We reload the weight matrix for each speaker and then we linearize the weight matrix with biases. This linearized weight matrix with biases is the RBM super-vector for a speaker. Then we apply PCA on all the RBM super-vectors. After application of PCA we get the RBM vectors for each speaker. Then we perform clustering on the RBM vectors. This is done on the file named, rbm_vectors_PCA_clustering.py
+![cluster1](https://github.com/UnimaginableDragon/SpeakerClusteringAndTrackingBM/blob/master/cluster_1.png)
+![cluster1](https://github.com/UnimaginableDragon/SpeakerClusteringAndTrackingBM/blob/master/cluserter_2.png)
 4.	Speech Segmentation, RBM vectors, and speaker tracking: 
 We perform speaker segmentation, and then we generate RBM vectors for each segments. Now each segment is checked with each speaker to find the match. The matching with the RBM vectors from speaker segments to the RBM vectors of speaker is done via cosine scoring.  In fact, cosine score is a similarity measure between two vectors. So for each segment the speaker with highest cosine similarity will be assigned as the speaker of the segment. The whole thing is done in file named, rbm_vectors_speaker_tracking.py.
 
